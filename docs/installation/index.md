@@ -3,11 +3,9 @@ title: Installation
 redirect: installation/installation
 pages:
     - installation
-    - install-command-line
-    - composer
+    - composer-based-distribution
     - install-sftp
-    - install-git-clone
+    - composer-create-project
     - permissions
     - webserver
-    - third-party-install-options
 ---

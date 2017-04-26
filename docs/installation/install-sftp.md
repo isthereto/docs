@@ -28,6 +28,11 @@ accepted best practices setup for web applications. You can read more on this
 [here][outside-why]. If this is not possible on your server environment, you
 can use the so-called "[Flat distribution][flat]", as an alternative.
 
+If you wish to manually alter the directory structure, so it fits your needs
+better, see the section on [configuring Bolt's structure using
+`.bolt.yml`][bolt-yml].
+
+
 Next Steps
 ----------
 

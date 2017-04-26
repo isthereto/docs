@@ -1,8 +1,8 @@
 ---
-title: Using the command-line
+title: "Composer-based distribution"
 ---
-Quick-install, using the command-line
-=====================================
+Quick install: Composer-based distribution
+==========================================
 
 If you have command-line access, you can easily install Bolt by executing a few
 commands. First, create the directory where you want to install Bolt, if it
@@ -62,6 +62,10 @@ web server's configuration, read the page
 your server environment, you can use the so-called "[Flat distribution][flat]",
 as an alternative.
 
+If you wish to manually alter the directory structure, so it fits your needs
+better, see the section on [configuring Bolt's structure using
+`.bolt.yml`][bolt-yml].
+
 ### Permissions
 
 Bolt needs to be able to write data to a number of folders. For example the
@@ -87,3 +91,4 @@ to the section [Setting up Bolt](../configuration/introduction).
 [webroot]: ../howto/troubleshooting-outside-webroot
 [outside-why]: ../howto/troubleshooting-outside-webroot#what-s-the-point-of-doing-this
 [flat]: ../howto/troubleshooting-outside-webroot#option-2-use-the-flat-structure-distribution
+[bolt-yml]: ../extensions/custom-bootstrapping#the-basics-of-configuring-a-bolt-application
