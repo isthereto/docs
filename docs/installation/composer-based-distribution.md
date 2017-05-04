@@ -17,6 +17,10 @@ tar -xzf bolt-latest.tar.gz --strip-components=1
 php app/nut setup:sync
 ```
 
+View this short screencast, to see it in action:
+
+<script type="text/javascript" src="https://asciinema.org/a/5qjomjhlm4421lzvqfy29phl7.js" id="asciicast-5qjomjhlm4421lzvqfy29phl7" async></script>
+
 If this set of commands didn't work because your server doesn't have `curl`,
 use `wget` instead.
 
