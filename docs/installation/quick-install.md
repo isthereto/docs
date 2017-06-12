@@ -1,44 +1,48 @@
 ---
-title: The traditional way, using (S)FTP
+title: "Quick install"
 ---
-The traditional way, using (S)FTP
-=================================
+Quick install: Composer-based distribution
+==========================================
 
-Download the [latest version of Bolt](https://bolt.cm/distribution/bolt-latest.zip).
+If you have command-line access, you can easily install Bolt by executing a few
+commands. The "Quick install" is Composer-based distribution package tha allows you to rapidly
+Quickly set up a Bolt installation, making use of the command line and the official
+distribution files. After initial setup it can be updated using this same method, or by running `composer update`.
 
-Extract the `.zip` file, and upload to your webhost using the (S)FTP client of
-your choice.
 
-<p class="note"><strong>Note:</strong> Don't forget to upload the
-<code>.htaccess</code> file, if you're using Apache! Bolt won't work without it.
-</p>
+First, create the directory where you want to install Bolt, if it
+doesn't already exist.
 
-If you can't find the file on your file system, download this
-[<code>default.htaccess</code>](https://bolt.cm/distribution/default.htaccess)
-file. Upload it to your server, and then rename it to <code>.htaccess</code>.
+Enter the directory where you want to place the files, and execute the
+following commands:
 
-If you're on OSX and you don't see the file, it might be that your system is
-set up to 'hide' hidden files, that start with a `.`-character.
+```bash
+curl -O https://bolt.cm/distribution/bolt-latest.tar.gz
+tar -xzf bolt-latest.tar.gz --strip-components=1
+php app/nut setup:sync
+```
 
-You can usually still find it, when browsing local files using your FTP
-client.
+View this short screencast, to see it in action:
+
+<script type="text/javascript" src="https://asciinema.org/a/5qjomjhlm4421lzvqfy29phl7.js" id="asciicast-5qjomjhlm4421lzvqfy29phl7" async></script>
+
+If this set of commands didn't work because your server doesn't have `curl`,
+use `wget` instead.
+
+That's all!
 
 Note: We recommend installing Bolt outside the web root, following commonly
 accepted best practices setup for web applications. You can read more on this
 [here][outside-why]. If this is not possible on your server environment, you
 can use the so-called "[Flat distribution][flat]", as an alternative.
 
-If you wish to manually alter the directory structure, so it fits your needs
-better, see the section on [configuring Bolt's structure using
-`.bolt.yml`][bolt-yml].
-
-
 Next Steps
 ----------
 
 ### Web server configuration
 
-After extracting the Tar or Zip file, you'll end up with a structure, similar to this:
+After extracting the Tar or Zip file, you'll end up with a structure, similar
+to this:
 
 ```bash
 .
@@ -47,13 +51,15 @@ After extracting the Tar or Zip file, you'll end up with a structure, similar to
 ├── public/
 ├── vendor/
 ├── README.md
-├── composer.json
-└── composer.lock
+├── composer.json.dist
+└── composer.lock.dist
 ```
 
 These are the folders that contain all of the Bolt code, resources and other
 files. Most of them are placed outside of the so-called web root. Only the
-folder `public/` needs to be accessible in the browser.
+'public' folder needs to be accessible in the browser. After the first
+installation this folder is named  `public/` but as you read on, you will see
+that you can rename it to `www/` or whatever your web server requires.
 
 To do this, configure your webserver to use the `public/` folder as the
 web root. For more information about this, see the pages on configuring
@@ -64,6 +70,10 @@ web server's configuration, read the page
 [Troubleshooting 'outside of the webroot'][webroot]. If this is not possible on
 your server environment, you can use the so-called "[Flat distribution][flat]",
 as an alternative.
+
+If you wish to manually alter the directory structure, so it fits your needs
+better, see the section on [configuring Bolt's structure using
+`.bolt.yml`][bolt-yml].
 
 ### Permissions
 
@@ -78,12 +88,16 @@ greeted by an error, and the message that you should fix this. If this happens,
 and you require guidance on setting up permissions, see our
 [File System Permissions](permissions) page.
 
+
 ### Finishing Set-up
 
-After you've done this, skip to the section [Setting up Bolt](../configuration/introduction).
+After extracting the files, checking the folder structure and setting up the
+vhost on your webserver, your Bolt installation should be good to go. Skip
+to the section [Setting up Bolt](../configuration/introduction).
 
 [apache]: ../installation/webserver/apache
 [nginx]: ../installation/webserver/nginx
 [webroot]: ../howto/troubleshooting-outside-webroot
 [outside-why]: ../howto/troubleshooting-outside-webroot#what-s-the-point-of-doing-this
 [flat]: ../howto/troubleshooting-outside-webroot#option-2-use-the-flat-structure-distribution
+[bolt-yml]: ../extensions/custom-bootstrapping#the-basics-of-configuring-a-bolt-application
