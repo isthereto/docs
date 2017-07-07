@@ -29,10 +29,10 @@ Changing session settings for a Bolt site can be done either by editing the
 site's `config.yml` file, or via dependency injection.
 
 in your `config.yml`, settings are done adding the required parameter key and
-value, to the `sessions` key, i.e.:
+value, to the `session` key, i.e.:
 
 ```yaml
-sessions:
+session:
     key: value
 ```
 
@@ -169,9 +169,13 @@ support Redis & Memcached for more advanced use-cases.
 
 | Key            | Default      |                                    |
 | ---------------| ------------ | ---------------------------------- |
-| `save_handler` | `filesystem` | `filesystem`, `redis`, `memcached` |
+| `save_handler` | `files`      | `files`, `redis`, `memcached` |
 
 Setting in your `config.yml`:
+i.e.
+session:
+    save_handler: files
+    save_path: cache://.sessions
 
 In `.php.ini` this setting is [`session.save_handler`][php-save-handler].
 
